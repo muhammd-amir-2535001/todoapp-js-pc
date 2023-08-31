@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoApp</title>
+</head>
+
+<body>
+    <script>
+
+
+        let tasks = [];
+
+        function addTask() {
+            const task = prompt("Please enter your task ");
+
+            if (tasks !== "") 
+            {
+                tasks.push(task);
+                console.log("Task added success");
+            }
+            else {
+                console.log("Invalid task");
+            }
+        }
+
+        function deleteTask() {
+            const index = prompt("Enter the task to delete:");
+
+            if (index >= 0 && index < tasks.length) {
+                tasks.splice(index, 1);
+                console.log("Task deleted success");
+            }
+            else {
+                console.log("Invalid index");
+            }
+        }
+
+      
+
+        function main() {
+            while (true) {
+                const choice = prompt(
+                    "Please select an option:\n1. Add Task\n2. Delete Task"
+                );
+
+                switch (parseInt(choice)) {
+                    case 1:
+                        addTask();
+                        break;
+                    case 2:
+                        deleteTask();
+                        break;
+                    default:
+                        console.log("Invalid choice! Please enter a valid option.");
+                }
+            }
+        }
+
+        main();
+        deleteTask();
+        function addTask();
+
+
+    </script>
+</body>
+
+</html>

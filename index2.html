@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+</head>
+<body>
+
+  <h1>To-Do App</h1>
+  <button onclick="addTask()">Add Task</button>
+  <button onclick="deleteTask()">Delete Task</button>
+  <button onclick="displayTasks()">Display Tasks</button>
+  <button onclick="editTask()">Edit Tasks</button>
+  <div id="output"></div>
+
+  <script>
+    let tasks = [];
+
+    function addTask() 
+    {
+      const task = prompt("Enter your task");
+
+      if (task !== "")
+       {
+
+        tasks.push(task);
+
+        console.log("Task add success");
+
+      } 
+      else 
+      {
+        console.log("Invalid task! Please enter a valid task.");
+      }
+    }
+
+
+
+    function displayTasks()
+    {
+
+      console.log("Tasks in To-Do App:");
+
+      let outputText = "";
+
+      tasks.forEach((task, index) => 
+      {
+        outputText += `${index}. ${task}\n`;
+      });
+
+      console.log(outputText);
+    }
+
+
+
+
+
+
+    
+    function deleteTask() 
+    {
+      //this is input
+      const index = parseInt(prompt("Enter the index of the task to delete"));
+
+      if (index >= 0 && index < tasks.length)
+       
+      {
+
+        tasks.splice(index, 1);
+        //The syntax of the splice method is Array.splice(start, removeCount, newItem, newItem, newItem, ...)
+
+        console.log("Task deleted success");
+
+      } 
+      else 
+      {
+        console.log("Invalid index");
+      }
+    }
+
+    
+
+    function editTask() {
+
+    const index = parseInt(prompt("Enter the index of the task to edit"));
+
+    if (index >= 0 && index < tasks.length) 
+
+    {
+
+      const updatedTask = prompt("Enter the updated task");
+
+      if (updatedTask !== "") 
+      {
+
+        tasks[index] = updatedTask;
+
+        console.log("Task edited successfully");
+     
+      }
+
+       else 
+       {
+        console.log("Invalid task! Please enter a valid task.");
+      
+      }
+    
+    } 
+    else
+     {
+
+      console.log("Invalid index");
+    }
+
+  }
+
+
+
+  </script>
+</body>
+</html>
